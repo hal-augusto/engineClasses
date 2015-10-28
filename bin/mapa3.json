@@ -1,0 +1,57 @@
+{ "height":100,
+ "layers":[
+        {
+         "compression":"zlib",
+         "data":"eJzt0UEKgDAMRNEeznP2rG61VN0IGcgLvP2QP8cYEwAAAAAAAAAAgF8dG9Wbutq10CSrgyaZLTTJa6GJHh2tf9YjmxYAAAAAAAAAAAAAAAAAAAAAAAAAAJBjBGzg3kOTHHpk0SPL9aq3oEea9ar3dKdHFj2y7K56U2dPV72rKz2yvF31to70yPJ11fu6OQHvMNtc",
+         "encoding":"base64",
+         "height":100,
+         "name":"Camada de Tiles 1",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":100,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "compression":"zlib",
+         "data":"eJzt3DEOgCAQBEAs9SP6\/xdqQ02ICmucaWhJNnBbXSlAr3UpZVtm34Jqv7I4OvKQX5be\/ACA9zzZk3Su+57sSToXMJu5kMVcAIBv0KGy6FAAjGD+ZzH\/+YP677ROxqj\/Tuskg\/eRxfsAAAAAAAAAAAAAAAAAAACAfvYnZBm5P0H2WezOAAAAAAAAAAAAAMh3AvFfBfs=",
+         "encoding":"base64",
+         "height":100,
+         "name":"Camada de Tiles 2",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":100,
+         "x":0,
+         "y":0
+        }],
+ "nextobjectid":1,
+ "orientation":"orthogonal",
+ "properties":
+    {
+
+    },
+ "renderorder":"right-down",
+ "tileheight":16,
+ "tilesets":[
+        {
+         "firstgid":1,
+         "image":"..\/..\/..\/..\/..\/Disciplina ENGINE2D\/Editor De Mapas\/Bridge.png",
+         "imageheight":256,
+         "imagewidth":480,
+         "margin":0,
+         "name":"Bridge",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tilecount":480,
+         "tileheight":16,
+         "tilewidth":16
+        }],
+ "tilewidth":16,
+ "version":1,
+ "width":100
+}

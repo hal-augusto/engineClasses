@@ -46,7 +46,12 @@ int MouseX,MouseY;
 Personagem heroi;
 ArrayList<Sprite> listaDePersonagens = new ArrayList<Sprite>();
 
-public static TileMapJSON map = null;
+public static int mapCotroller = 1;
+public static TileMapJSON mapCurrent = null;
+public static TileMapJSON map1 = null;
+public static TileMapJSON map2 = null;
+public static TileMapJSON map3 = null;
+public static TileMapJSON map4 = null;
 
 public GamePanel()
 {
@@ -87,7 +92,19 @@ public GamePanel()
 				}
 				if(keyCode == KeyEvent.VK_DOWN){
 					DOWN = true;
-				}	
+				}
+				if(keyCode == KeyEvent.VK_1){
+					mapCotroller = 1;
+				}
+				if(keyCode == KeyEvent.VK_2){
+					mapCotroller = 2;
+				}
+				if(keyCode == KeyEvent.VK_3){
+					mapCotroller = 3;
+				}
+				if(keyCode == KeyEvent.VK_4){
+					mapCotroller = 4;
+				}
 			}
 		
 		@Override
@@ -162,19 +179,18 @@ public GamePanel()
 	charset = abreImagem("rmxp004tw4.png");
 	tileset = abreImagem("tilemap3.png");
 	
-	MouseX = MouseY = 0;
+	MouseX = MouseY = 0;	
 	
-	for(int i = 0; i < 10;i++){
-		Personagem pers = new Personagem(rnd.nextInt(630), rnd.nextInt(470), charset,rnd.nextInt(4),rnd.nextInt(2));
-		pers.velX = rnd.nextInt(400)-200;
-		pers.velY = rnd.nextInt(400)-200;
-		listaDePersonagens.add(pers);
-	}
+	heroi = new Personagem(10, 500,charset,0,0);
 	
-	heroi = new Personagem(10, 100,charset,0,0);
-	
-	map = new TileMapJSON(tileset, 40, 30);
-	map.AbreMapa("mapa1.json");
+	map1 = new TileMapJSON(tileset, 40, 30);
+	map1.AbreMapa("mapa1.json");
+	map2 = new TileMapJSON(tileset, 40, 30);
+	map2.AbreMapa("mapa2.json");
+	map3 = new TileMapJSON(tileset, 40, 30);
+	map3.AbreMapa("mapa3.json");
+	map4 = new TileMapJSON(tileset, 40, 30);
+	map4.AbreMapa("mapa4.json");
 	
 
 } // end of GamePanel()
@@ -277,6 +293,23 @@ private void gameUpdate(long diffTime)
 		heroi.velX = 0;
 	}
 	
+	switch (mapCotroller) {
+	case 1:
+		mapCurrent = map1;
+		break;
+	case 2:
+		mapCurrent = map2;
+		break;
+	case 3:
+		mapCurrent = map3;
+		break;
+	case 4:
+		mapCurrent = map4;
+		break;
+	default:
+		break;
+	}
+	
 	heroi.simulaSe(diffTime);
 	
 	for(int i = 0; i < listaDePersonagens.size();i++){
@@ -284,21 +317,20 @@ private void gameUpdate(long diffTime)
 		pers.simulaSe(diffTime);
 	}
 	
-	map.Posiciona((int)(heroi.x-PWIDTH/2),(int)(heroi.y-PHEIGHT/2));
+	mapCurrent.Posiciona((int)(heroi.x-PWIDTH/2),(int)(heroi.y-PHEIGHT/2));
 }
 
 private void gameRender()
 // draw the current frame to an image buffer
 {
-
-	map.DesenhaSe(dbg);
+	mapCurrent.DesenhaSe(dbg);
 
 	for(int i = 0; i < listaDePersonagens.size();i++){
 		Personagem pers = (Personagem)listaDePersonagens.get(i);
-		pers.desenhaSe(dbg,map.MapX,map.MapY);
+		pers.desenhaSe(dbg,mapCurrent.MapX,mapCurrent.MapY);
 	}
 	
-	heroi.desenhaSe(dbg,map.MapX,map.MapY);
+	heroi.desenhaSe(dbg,mapCurrent.MapX,mapCurrent.MapY);
 	
 	dbg.setColor(Color.BLUE);
 	dbg.drawString("FPS: "+FPS+" "+MouseX+" "+MouseY, 10, 10);

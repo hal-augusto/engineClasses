@@ -46,8 +46,8 @@ public class Personagem extends Sprite {
 			x = 0;
 			velX = -velX;
 		}
-		if(x>(GamePanel.map.Largura*16)-charw){
-			x = (GamePanel.map.Largura*16)-charw;
+		if(x>(GamePanel.mapCurrent.Largura*16)-charw){
+			x = (GamePanel.mapCurrent.Largura*16)-charw;
 			velX = -velX;
 		}
 		
@@ -55,15 +55,16 @@ public class Personagem extends Sprite {
 			y = 0;
 			velY = -velY;
 		}
-		if(y>(GamePanel.map.Altura*16)-charh){
-			y = (GamePanel.map.Altura*16)-charh;
+		if(y>(GamePanel.mapCurrent.Altura*16)-charh){
+			y = (GamePanel.mapCurrent.Altura*16)-charh;
 			velY = -velY;
+			GamePanel.mapCotroller = 2;
 		}	
 		
 		int bx = (int)((x+16)/16);
 		int by = (int)((y+40)/16);
 		
-		if(GamePanel.map.mapa2[by][bx]>0){
+		if(GamePanel.mapCurrent.mapa2[by][bx]>0){
 			x = oldx;
 			y = oldy;
 			velY = -velY;
